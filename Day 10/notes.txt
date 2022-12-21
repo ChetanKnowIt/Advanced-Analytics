@@ -1,0 +1,5 @@
+file names:
+
+1. PML 1 https://colab.research.google.com/drive/1jQ_YlTLWH1jjMCwIdLKaIyHb95UBSjj-#scrollTo=gkKxNCvs1PaO
+2. Linear Regression https://colab.research.google.com/drive/1YdG_mJe0tj_IMlSusoVq03cQXNiIeril#scrollTo=aFXFyr5UtYtu
+3. Clustering https://colab.research.google.com/drive/1QKkAjhpkZYtNe247HRqU8iIIXnqNzbTh#scrollTo=lDSfWXGxtmOh
