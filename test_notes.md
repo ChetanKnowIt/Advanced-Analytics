@@ -1,10 +1,18 @@
 
+# Notes
+* general tricks (from analytics)
+* efficient anlytics study (arrow, x86, arm64)
+-----
 
-
-# Prob Dist
+### Prob Dist
+```python
 pd.crosstab(index=X1, columns=X2, margins=True)
-### Joint Prob Dist          Conditional Prob Dist Columns 
-normalize = all          normalize = columns
+```
+### Joint Prob Dist        
+normalize = all          
+
+###   Conditional Prob Dist Columns 
+normalize = columns
 
 # Binom Dist
 ### PMF
