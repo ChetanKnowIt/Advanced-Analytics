@@ -185,3 +185,56 @@ print(r2_score(y_test, y_pred))
 pizza.corr()
 
 
+# Efficient Data Analytics
+---
+
+###### _understanding Apache Arrow with different architectures_
+
+
+
+### Arrow Function Mapping to x86 and ARM64 Vector Instructions
+
+| Arrow Function             | Description                          | x86 Vector Instructions                | ARM64 Vector Instructions               |
+|----------------------------|--------------------------------------|----------------------------------------|-----------------------------------------|
+| **Load/Store**             | Load/store data from/to memory       | `VMOVDQU`, `VMOVDQA`, `VMOVUPS`, `VMOVAPS` | `LD1`, `ST1` (multiple variants)        |
+| **Add**                    | Element-wise addition                | `VPADDQ` (int), `VADDPS` (float), `VADDPD` (double) | `ADD`, `FADD`                           |
+| **Subtract**               | Element-wise subtraction             | `VPSUBQ` (int), `VSUBPS` (float), `VSUBPD` (double) | `SUB`, `FSUB`                           |
+| **Multiply**               | Element-wise multiplication          | `VPMULLD` (int), `VMULPS` (float), `VMULPD` (double) | `MUL`, `FMUL`                           |
+| **Divide**                 | Element-wise division                | `VDIVPS` (float), `VDIVPD` (double)    | `FDIV`                                  |
+| **Comparison**             | Element-wise comparison              | `VPCMPGTQ` (int), `VCMPPS` (float), `VCMPPD` (double) | `CMP`, `FCMP`                           |
+| **Logical AND**            | Bitwise AND                          | `VPAND`                                | `AND`                                   |
+| **Logical OR**             | Bitwise OR                           | `VPOR`                                 | `ORR`                                   |
+| **Logical XOR**            | Bitwise XOR                          | `VPXOR`                                | `EOR`                                   |
+| **Shuffle**                | Rearrange elements                   | `VPSHUFB`, `VPERM2F128`, `VPERMD`      | `TBL`, `VTBL`                           |
+| **Horizontal Add**         | Sum of adjacent pairs                | `VPHADDW`, `VHADDPS`, `VHADDPD`        | `ADDP`                                  |
+| **Reduction Sum**          | Sum of all elements                  | `VPREDUCEADD`                          | `ADDV`, `FADDV`                         |
+| **Masking**                | Apply mask to elements               | `VMASKMOVPS`, `VMASKMOVPD`, `VBLENDVPS` | `BIC` (bitwise clear), `BIT` (bitwise insert) |
+| **Convert to Float**       | Convert integer to float             | `VCVTDQ2PS`, `VCVTQQ2PS`               | `SCVTF`                                 |
+| **Convert to Integer**     | Convert float to integer             | `VCVTPS2DQ`, `VCVTPS2QQ`               | `FCVTZS`                                |
+| **Broadcast**              | Broadcast scalar across vector       | `VPBROADCASTD`, `VPBROADCASTQ`, `VBROADCASTSS` | `DUP`, `LD1R`                          |
+| **Blending**               | Merge elements based on mask         | `VBLENDVPS`, `VBLENDVPD`               | `BIT` (bitwise insert)                  |
+
+
+
+### Comparison of Ampere ARM Processors and Modern x86 Processors
+
+| Feature                      | Ampere ARM Processors                           | Modern x86 Processors                             |
+|------------------------------|-------------------------------------------------|---------------------------------------------------|
+| SIMD Instruction Set         | NEON                                            | SSE, SSE2, SSE3, SSSE3, SSE4, AVX, AVX2, AVX-512  |
+| Advanced Vector Extension    | SVE, SVE2                                       | AVX, AVX2, AVX-512                                |
+| Vector Register Width        | NEON: 128-bit, SVE: 128 to 2048-bit             | SSE: 128-bit, AVX: 256-bit, AVX-512: 512-bit      |
+| Floating-Point Support       | Single, Double, and Half-Precision (NEON, SVE)  | Single, Double-Precision (SSE, AVX)               |
+| Data Types                   | Integer, Floating-Point (NEON, SVE)             | Integer, Floating-Point (SSE, AVX)                |
+| Instruction Set Extensions   | NEON, SVE                                       | SSE, AVX, AVX2, AVX-512                           |
+| Application Domain           | HPC, Cloud Computing, Signal Processing         | General Computing, HPC, AI, Scientific Computing  |
+
+
+
+
+
+
+## License
+
+MIT - **Free Software, Hell Yeah!**
+
+
